@@ -1,0 +1,38 @@
+<h1>Current Pokemon Moves -</h1>
+{{#each foo}}
+{{this}}
+{{/each}}
+
+<table id="table">
+    <thead> 
+        <th>Pokemon Name   </th> 
+        <th>Evolution Level   </th>
+	<th>Move Name   </th> 
+    </thead>
+    <input type="text" class="search form-control" id="searchinput" placeholder="Pokemon Name">
+    <input type="button" class="btn btn-primary" value="Search" onclick="getUsers({{id}})"/>
+	<br> 
+    <tbody>
+        {{#each pokemon}}
+        <tr>
+            <td>{{pokemonname}}</td>
+            <td>{{evolutionlevel}}</td>
+	    <td>{{movename}}</td>
+            <td><button onclick="deletePokemon({{id}})">Delete</td>
+        <td><a href="/pokemon/{{id}}">Update</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+    <form id="addpokemon" action="/pokemon" method="POST">
+       Pokemon Name: <input type="text" name="pokemonname"><br>
+       Evolution Level: <input type="text" name="evolutionlevel"><br>
+       Move Name: <select name="movename">
+	{{#each move}}
+	<option value="{{id}}">{{primarymovename}}</option>
+	{{/each}}
+	</select><br>
+	<input type="submit" value="Submit">	
+    </form>
+</table>
+
+ 

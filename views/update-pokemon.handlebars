@@ -1,0 +1,12 @@
+<h1> Update {{pokemon.pokemonname}}: </h1>
+<form id="update-pokemon" action="/pokemon" method="post">
+	Pokemon Name: <input type="text" name="pokemonname" value="{{pokemon.pokemonname}}"><br>
+	Evolution Level: <input type="text" name="evolutionlevel" value="{{pokemon.evolutionlevel}}"><br>
+	Primary Move: <select name="movename" id="move-selector">
+		{{#each move}}
+		<option value="{{id}}">{{primarymovename}}</option>
+		{{/each}}
+	</select><br>
+		</form>
+	<button onclick="updatePokemon({{pokemon.id}})">Update</button>
+	<script>$(function() {selectMove({{pokemon.movename}})});</script>
